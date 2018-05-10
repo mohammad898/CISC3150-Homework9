@@ -1,0 +1,17 @@
+Object class can not be instantiate because instance variable of the producer and consumer class are not locked .Also, superclass is not allow to pass object type and Object class do not have run method that need for Thread running.That is why the program crashes.
+
+ The notifyAll happens after two threads have called wait. Under different conditions, none or all other threads could have called wait.
+notifyAll doesn't work retroactively. It only wakes up those threads that are already waiting, not those that invoke wait later.
+If we want to use notifyAll() and wait() method in our program then we have to use synchronized function or object locked because the NotifyALL only wakes up threads but doesn't unlock .
+
+We can fixed this problem using synchronized keyword because in Java guarantees that no two threads can execute a synchronized method which requires the same lock simultaneously or concurrently.
+
+Reference:
+https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html
+https://stackoverflow.com/questions/15595538/monitors-and-synchronized-blocks-in-java-it-appears-two-threads-own-a-monitor-a
+https://www.javatpoint.com/synchronized-block-example
+
+https://www.geeksforgeeks.org/method-block-synchronization-java/
+https://stackoverflow.com/questions/8161896/example-code-to-show-how-java-synchronized-block-works
+
+https://docs.oracle.com/javase/tutorial/essential/concurrency/sync.html
